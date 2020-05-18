@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="945.0" style="-fx-background-color: #ffffff;" stylesheets="@../CSS/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Controller">
+   <children>
+      <Text fill="#05d39b" layoutX="69.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COMPARESOFT">
+         <font>
+            <Font name="Century Gothic Bold" size="17.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="33.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" rotate="-127.9">
+         <image>
+            <Image url="@../CSS/icons8-attach-48.png" />
+         </image>
+      </ImageView>
+      <TabPane fx:id="tabPane" layoutY="70.0" prefHeight="546.0" prefWidth="945.0" side="LEFT" stylesheets="@../CSS/TabPane.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+        <tabs>
+          <Tab fx:id="p_cutomers">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #F2FEFA;">
+                     <children>
+                        <GridPane layoutX="29.0" layoutY="7.0" prefHeight="453.0" prefWidth="519.0" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="18.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TableView fx:id="customersTable" prefHeight="453.0" prefWidth="567.0" stylesheets="@../CSS/table.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn fx:id="idColumn" minWidth="-Infinity" prefWidth="112.66669273376465" text="ID" />
+                                    <TableColumn fx:id="nameColumn" minWidth="-Infinity" prefWidth="177.3332977294922" text="Name" />
+                                    <TableColumn fx:id="emailColumn" minWidth="-1.0" prefWidth="204.00009155273438" text="Email" />
+                                    <TableColumn fx:id="phoneColumn" prefWidth="172.0" text="Phone Number" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="9.0" layoutY="474.0" prefHeight="73.0" prefWidth="692.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <JFXButton onAction="#addCustomer" prefHeight="50.0" prefWidth="226.0" style="-fx-background-color: #05D39B;" text="Add Customer" textFill="WHITE">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton onAction="#editCustomer" prefHeight="50.0" prefWidth="225.0" style="-fx-background-color: #05D39B;" text="Edit Customer" textFill="WHITE" GridPane.columnIndex="1">
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton onAction="#deleteCustomer" prefHeight="50.0" prefWidth="229.0" style="-fx-background-color: #05D39B;" text="Delete Customer" textFill="WHITE" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="14.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+               <graphic>
+                  <HBox fx:id="h1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="170.0" spacing="25.0">
+                     <children>
+                        <ImageView fx:id="img1" fitHeight="150.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../CSS/img001.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="t1" minWidth="-Infinity" prefHeight="37.0" prefWidth="134.0" text="Potential Customers" textFill="#bababa">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </graphic>
+          </Tab>
+          <Tab fx:id="profile">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #F2FEFA;" />
+            </content>
+               <graphic>
+                  <HBox fx:id="h2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="170.0" spacing="25.0">
+                     <children>
+                        <ImageView fx:id="img2" fitHeight="150.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../CSS/img002.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="t2" prefHeight="38.0" prefWidth="117.0" text="Your Profile" textFill="#bababa">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </graphic>
+          </Tab>
+            <Tab fx:id="message">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #F2FEFA;" />
+              </content>
+               <graphic>
+                  <HBox fx:id="h3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="170.0" spacing="23.0">
+                     <children>
+                        <ImageView fx:id="img3" fitHeight="150.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../CSS/img003.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="t3" prefHeight="33.0" prefWidth="119.0" text="Message" textFill="#bababa">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </graphic>
+            </Tab>
+            <Tab fx:id="feedback">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="618.0" style="-fx-background-color: #F2FEFA;" />
+              </content>
+               <graphic>
+                  <HBox fx:id="h4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="170.0" spacing="24.0">
+                     <children>
+                        <ImageView fx:id="img4" fitHeight="150.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../CSS/img004.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="3.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label fx:id="t4" prefHeight="33.0" prefWidth="116.0" text="Feedback" textFill="#bababa">
+                           <font>
+                              <Font name="Century Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
