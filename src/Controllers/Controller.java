@@ -1,14 +1,14 @@
 package Controllers;
 
 import application.kernel.Customer;
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableSelectionModel;
+
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -70,7 +70,7 @@ public class Controller implements Initializable {
 
 
     @FXML
-    void addCustomer(ActionEvent event) throws IOException {
+    void addCustomer() throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("../FXML/addCustomerView.fxml"));
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
@@ -83,9 +83,9 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void deleteCustomer(ActionEvent event) throws SQLException {
+    void deleteCustomer() throws SQLException {
         //System.out.println(customersTable.getSelectionModel().getSelectedItem().getId());
-        // get selected data
+        // get selected customer
         Customer customerToDelete = customersTable.getSelectionModel().getSelectedItem();
         // prepare sql statement
         String sql = "DELETE FROM customers WHERE id = ?";
@@ -99,18 +99,11 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void editCustomer(ActionEvent event) throws IOException {
-        selectedCustomer = customersTable.getSelectionModel().getSelectedItem();
-        Parent parent = FXMLLoader.load(getClass().getResource("../FXML/editCustomerView.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Edit Customer");
-        stage.setResizable(false);
-        stage.showAndWait();
+    void editCustomer() {
+
     }
 
-    public  void updateCustomersTable(){
+    private void updateCustomersTable(){
         // fill customer table from database records
         String sql = "SELECT * FROM customers";
         Connection connection = DataBaseController.getConnection();
@@ -128,11 +121,5 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
 
-    }
-
-    private Customer selectedCustomer;
-    public Customer getTableSelectedItem(){
-
-        return selectedCustomer;
     }
 }
